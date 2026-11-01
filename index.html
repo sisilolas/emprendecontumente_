@@ -36,7 +36,7 @@
 
   /* NAV */
   header{position:sticky;top:0;z-index:50;background:rgba(247,241,231,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--arena)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .nav{display:flex;align-items:center;justify-content:space-between;min-height:70px}
   .brand{font-family:'Lora',serif;font-style:italic;font-size:19px;text-decoration:none;color:var(--petroleo)}
   .brand span{color:var(--terracota)}
   .nav-links{display:flex;gap:26px;align-items:center}
@@ -175,7 +175,7 @@
 
 <header>
   <div class="wrap nav">
-    <a href="#" class="brand">Emprende con <span>Tu</span> Mente</a>
+    <a href="#"     <a href="#" class="brand" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px">Emprende con <span>Tu</span> Mente<img src="logo.png" alt="Logo Emprende con Tu Mente" style="height:44px;width:auto;display:block"></a>
     <nav class="nav-links">
       <a href="#metodo">Método</a>
       <a href="#programa">Programa</a>
@@ -406,7 +406,8 @@ con más claridad y sostener acciones que realmente impulsen su avance..</p>
   <div class="wrap">
     <div class="foot">
       <div>
-        <div class="brand">Emprende con Tu Mente</div>
+              <div class="brand">Emprende con Tu Mente</div>
+        <img src="logo.png" alt="Logo Emprende con Tu Mente" style="height:70px;width:auto;display:block;margin-top:10px;background:var(--crema);padding:6px 10px;border-radius:12px">
         <div style="margin-top:6px">Coaching + neurociencia aplicada</div>
       </div>
       <div style="display:grid;gap:8px">
