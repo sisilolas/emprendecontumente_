@@ -165,7 +165,11 @@
     // Link de pago (Mercado Pago, Stripe, Flow, etc.). Mientras sea este texto, el botón abre WhatsApp.
     paymentLink: "REEMPLAZAR_LINK_DE_PAGO",
     // Link de agenda opcional (Calendly / Cal.com). Si lo pones, el formulario también ofrece abrirlo.
-    calendarLink: ""
+        calendarLink: "",
+    // Fechas sin reservas, formato AAAA-MM-DD
+    diasBloqueados: ["2026-11-10", "2026-12-25"],
+    // Días de la semana cerrados: 0 = domingo, 1 = lunes ... 6 = sábado
+    diasCerrados: [0, 1, 6]
   };
 </script>
 
@@ -436,6 +440,17 @@ con más claridad y sostener acciones que realmente impulsen su avance..</p>
   const hoy = new Date();
   fecha.min = new Date(hoy.getTime() - hoy.getTimezoneOffset() * 60000).toISOString().split('T')[0];
 
+    // Bloquea los días indicados en CONFIG
+  const diaBloqueado = (f) => {
+    const dia = new Date(f + 'T12:00:00').getDay();
+    return CONFIG.diasBloqueados.includes(f) || CONFIG.diasCerrados.includes(dia);
+  };
+  fecha.addEventListener('change', () => {
+    if (fecha.value && diaBloqueado(fecha.value)) {
+      alert('Ese día no tengo horas disponibles. Elige otra fecha.');
+      fecha.value = '';
+    }
+  });
   // Formulario de agenda: envía la solicitud por WhatsApp
   document.getElementById('booking').addEventListener('submit', (e) => {
     e.preventDefault();
