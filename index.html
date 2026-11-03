@@ -472,7 +472,7 @@ Fecha preferida: ${fechaTxt}
 Horario preferido: ${d.hora}
 Interés: ${d.interes}
 ${d.desafio ? 'Desafío: ' + d.desafio : ''}`;
-    if (CONFIG.calendarLink) {
+    {
       window.open(CONFIG.calendarLink, '_blank', 'noopener');
     }
     window.open(waLink(msg), '_blank', 'noopener');
